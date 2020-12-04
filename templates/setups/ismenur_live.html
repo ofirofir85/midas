@@ -1,0 +1,142 @@
+
+<div id="widget0" class="widget_container" data-widget-type="button"><div class="container card bg-secondary mb-3 mt-3">
+	<div class="row">
+		<div class="col text-center card-header text-light">
+			<span id="widget0" class="widget_label">Looper 1</span>
+		</div>
+	</div>
+
+	<div class="row justify-content-center mb-3 mt-3">
+		<div class="col-12">
+			
+<canvas width="180px" height="200px"></canvas>
+<div id="widget0" data-widget-command="note_on" data-widget-event="mousedown" class="widget big-button" data-disabled="true" disabled="disabled"></div>
+
+		</div>
+	</div>
+	<div class="row justify-content-center card-footer">
+		<div class="col-auto">
+			<div id="widget0" class="input-group edit_widget_bar" style="display: none;">
+				<div class="input-group-prepend">
+					<button id="widget0" data-edit-class="widget_data" class="btn btn-light" onclick="edit_widget(this, 'open')"><span class="oi oi-musical-note" title="musical-note" aria-hidden="true"></span></button>
+				</div>
+				<button id="widget0" data-edit-class="widget_customise" class="btn btn-dark" onclick="edit_widget(this, 'open')"><span class="oi oi-pencil"></span></button>
+				<div class="input-group-append">
+					<button id="widget0" class="remove_widget btn btn-danger" onclick="remove_widget(this)"><span class="oi oi-trash"></span></button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row justify-content-center">
+		<div class="col-auto">
+			<div id="widget0" class="edit_widget_forms">
+				<form action="javascript:void(0);" id="widget0" data-edit-class="widget_data" class="widget_data_form" onsubmit="edit_widget(this, 'close')" style="">
+					
+	<div class="input-group mb-3">
+		<div class="input-group-prepend">
+			<span class="input-group-text">Note</span>
+		</div>
+		<input class="widget_data form-control" type="number" name="note" required="" min="0" max="127" placeholder="Note" value="62">
+	</div>
+	<div class="input-group mb-3">
+		<div class="input-group-prepend">
+			<span class="input-group-text">Velocity</span>
+		</div>
+		<input class="widget_data form-control" type="number" min="0" max="127" required="" name="velocity" placeholder="Velocity" value="58">
+	</div>
+
+
+					<div class="input-group mb-3">
+						<div class="input-group-prepend">
+							<span class="input-group-text">Channel</span>
+						</div>
+						<input class="widget_data form-control" type="number" min="0" max="15" required="" name="channel" placeholder="Channel" value="0">
+					</div>
+					<input type="submit" class="btn btn-light" value="Save">	
+				</form>	
+
+				<form action="javascript:void(0);" id="widget0" data-edit-class="widget_customise" onsubmit="edit_widget(this, 'close')" class="widget_customise_form" style="display: none;">
+					<div class="input-group mb-3">
+						<div class="input-group-prepend">
+							<span class="input-group-text">Label</span>
+						</div>
+						<input class="widget_customise form-control" id="widget0" value="widget0" type="text" name="widget_label" placeholder="Widget Label" onchange="change_widget_label(this)">
+					</div>
+					
+
+					<input type="submit" class="btn btn-light" value="Close">
+				</form>
+			</div>
+		</div>
+	</div>
+</div></div><div id="widget1" class="widget_container" data-widget-type="slider"><div class="container card bg-secondary mb-3 mt-3">
+	<div class="row">
+		<div class="col text-center card-header text-light">
+			<span id="widget1" class="widget_label">distortion</span>
+		</div>
+	</div>
+
+	<div class="row justify-content-center mb-3 mt-3">
+		<div class="col-12">
+			
+<input type="range" min="0" ,="" max="127" id="widget1" data-widget-command="control_change" data-widget-event="change" onchange="slider_value_change(this)" class="widget form-control-range" data-disabled="false">
+
+		</div>
+	</div>
+	<div class="row justify-content-center card-footer">
+		<div class="col-auto">
+			<div id="widget1" class="input-group edit_widget_bar" style="">
+				<div class="input-group-prepend">
+					<button id="widget1" data-edit-class="widget_data" class="btn btn-light" onclick="edit_widget(this, 'open')"><span class="oi oi-musical-note" title="musical-note" aria-hidden="true"></span></button>
+				</div>
+				<button id="widget1" data-edit-class="widget_customise" class="btn btn-dark" onclick="edit_widget(this, 'open')"><span class="oi oi-pencil"></span></button>
+				<div class="input-group-append">
+					<button id="widget1" class="remove_widget btn btn-danger" onclick="remove_widget(this)"><span class="oi oi-trash"></span></button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row justify-content-center">
+		<div class="col-auto">
+			<div id="widget1" class="edit_widget_forms">
+				<form action="javascript:void(0);" id="widget1" data-edit-class="widget_data" class="widget_data_form" onsubmit="edit_widget(this, 'close')" style="display: none;">
+					
+	<div class="input-group mb-3">
+		<div class="input-group-prepend">
+			<span class="input-group-text">Control</span>
+		</div>
+		<input class="widget_data form-control" type="number" name="control" required="" min="0" max="127" placeholder="Control" value="64">
+	</div>
+	<div class="input-group mb-3">
+		<div class="input-group-prepend">
+			<span class="input-group-text">Value</span>
+		</div>
+		<input class="widget_data form-control" min="0" max="127" type="number" disabled="" required="" name="value" placeholder="Value" value="72">
+	</div>	
+
+					<div class="input-group mb-3">
+						<div class="input-group-prepend">
+							<span class="input-group-text">Channel</span>
+						</div>
+						<input class="widget_data form-control" type="number" min="0" max="15" required="" name="channel" placeholder="Channel" value="0">
+					</div>
+					<input type="submit" class="btn btn-light" value="Save">	
+				</form>	
+
+				<form action="javascript:void(0);" id="widget1" data-edit-class="widget_customise" onsubmit="edit_widget(this, 'close')" class="widget_customise_form" style="display: none;">
+					<div class="input-group mb-3">
+						<div class="input-group-prepend">
+							<span class="input-group-text">Label</span>
+						</div>
+						<input class="widget_customise form-control" id="widget1" value="widget1" type="text" name="widget_label" placeholder="Widget Label" onchange="change_widget_label(this)">
+					</div>
+					
+
+					<input type="submit" class="btn btn-light" value="Close">
+				</form>
+			</div>
+		</div>
+	</div>
+</div></div>

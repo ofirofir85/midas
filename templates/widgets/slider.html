@@ -1,0 +1,59 @@
+{%extends 'widget.html'%}
+
+{%block widget_element%}
+<p class="text-light range_value_label">64</p>
+<input list="tickmarks" type='range' min="0", max="127" id="{{widget_id}}" data-widget-command="control_change" data-colspan="col-12 col-md-8 col-lg-4" data-widget-event="change" oninput="range_value_change(this)" class="widget form-control text-light" />
+<datalist id="tickmarks">
+  <option value="0"></option>
+  <option value="10"></option>
+  <option value="20"></option>
+  <option value="30"></option>
+  <option value="40"></option>
+  <option value="50"></option>
+  <option value="60"></option>
+  <option value="70"></option>
+  <option value="80"></option>
+  <option value="90"></option>
+  <option value="10"></option>
+  <option value="100"></option>
+  <option value="110"></option>
+  <option value="120"></option>
+  <option value="127"></option>
+</datalist>
+{%endblock%}
+
+{%block widget_data%}
+	<div class="input-group mb-3">
+		<div class="input-group-prepend">
+			<span class="input-group-text">Control</span>
+		</div>
+		<input class="widget_data form-control" type="number" name="control" required min="0" max="127" placeholder="Control">
+	</div>
+	<div class="input-group mb-3">
+		<div class="input-group-prepend">
+			<span class="input-group-text">Value</span>
+		</div>
+		<input class="widget_data form-control" min="0" max="127" type="number" disabled required name="value" placeholder="Value">
+	</div>	
+{%endblock%}
+
+{%block widget_customise%}
+<div class="input-group mb-3">
+	<div class="input-group-prepend">
+		<span class="input-group-text">Length</span>
+	</div>
+	<div  id="{{widget_id}}" class="input-group-append size_buttons btn-group btn-group-sm btn-group-toggle" data-toggle="buttons">
+			<lable class="btn btn-dark active">
+				<input type="radio" name="slider_size" value="col-12 col-md-8 col-lg-4" checked onchange="change_slider_size(this)"/> Auto
+			</lable>
+			<lable class="btn btn-dark active">
+				<input type="radio" name="slider_size" value="col-6" onchange="change_slider_size(this)"/>Half Row
+			</lable>
+			<lable class="btn btn-dark active">
+				<input type="radio" name="slider_size" value="col-12" onchange="change_slider_size(this)"/>Full Row
+			</lable>	 
+	</div>
+</div>
+{%endblock%}
+
+onclick="change_slider_size(this,'auto')"

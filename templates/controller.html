@@ -1,0 +1,76 @@
+{% extends 'layout.html'%}
+
+{%block controller%}
+<div class="container card bg-light">
+	<div class="row">
+		<div class="col card-header">
+			<span class="">Controller Panel</span>
+			<button class="btn btn-outline-dark" data-toggle="collapse" data-target=".controller_panel"><span class="oi oi-wrench"></span></button>
+		</div>
+	</div>
+</div>
+
+<div class="controller_panel card bg-light container collapse">
+	<div class="row mt-3 mb-2">
+		<div class="col-auto mr-auto">
+			<form id="add_widget" action="javascript:void(0)" onsubmit="add_widget()">
+				<div class="input-group">
+					<div class="input-group-prepend">
+						<span class="input-group-text">Add Widget</span>
+					</div>
+					<select required class="widget_select custom-select">
+						<option value="" disabled selected hidden>Choose Widget</option>
+					</select>
+					<div class="input-group-append">
+						<button type="submit" class="btn btn-success"><span class="oi oi-plus"></span></button>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="col-auto">
+			<form method="GET" action="{{url_for('close_midi')}}">
+				<div class="input-group">
+					<div class="input-group-prepend">
+						<span class="input-group-text" id="midi_status_text">Server Response: <span class="midi_status">0_0</span></span>
+					</div>
+					<input type="submit" class="btn btn-danger"  aria-describedby="midi_status_text" value="Close Midi" />
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div class="row mt-2 mb-3">
+		<div class="col-auto mr-auto">
+			<form action="javascript:void(0)" onsubmit="save_setup()">
+				<div class="input-group">
+					<div class="input-group-prepend">
+						<span class="input-group-text">Save Setup</span>
+					</div>
+					<input type="text" placeholder="Setup Name" class='form-control' required id="setup_name" name="setup_name">
+					<div class="input-group-append">
+						<button class="btn btn-dark" type="submit"><span class="oi oi-cloud-upload"></span></button>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="col-auto">
+			<form action="javascript:void(0)" onsubmit="load_setup()">
+				<div class="input-group">
+					<div class="input-group-prepend">
+						<span class="input-group-text">Load Setup</span>
+					</div>
+					<select required class="setup_select" id="setup_select">
+						<option value="" disabled selected hidden>Choose Setup</option>
+					</select>
+					<div class="input-group-append">
+						<button class="btn btn-dark"><span class="oi oi-cloud-download"></span></button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<div class="setup_container row">
+</div>
+{%endblock%}

@@ -1,0 +1,25 @@
+{% extends 'widget.html'%}
+
+{%block widget_element%}
+<canvas width="100px" height="90px"></canvas>
+<div id="{{widget_id}}" data-widget-command="note_on" data-widget-event="mousedown" data-colspan="col-6 col-md-4 col-lg-3" class="widget big-button button-blue"></div>
+{%endblock%}
+
+{%block widget_data%}
+	<div class="input-group mb-3">
+		<div class="input-group-prepend">
+			<span class="input-group-text">Note</span>
+		</div>
+		<input class="widget_data form-control" type="number" name="note" required min="0" max="127" placeholder="Note">
+	</div>
+	<div class="input-group mb-3">
+		<div class="input-group-prepend">
+			<span class="input-group-text">Velocity</span>
+		</div>
+		<input class="widget_data form-control" type="number" min="0" max="127" required name="velocity" placeholder="Velocity">
+	</div>
+
+{%endblock%}
+
+{%block widget_customise%}
+{%endblock%}

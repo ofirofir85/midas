@@ -1,0 +1,60 @@
+<div class="container card bg-secondary mb-3 mt-3">
+	<div class="row">
+		<div class="col text-center card-header text-light">
+			<span id="{{widget_id}}" class="widget_label">{{widget_id}}</span>
+		</div>
+	</div>
+
+	<div class="row justify-content-center mb-3 mt-3">
+		<div class="col-12">
+			{% block widget_element %}
+			{% endblock %}
+		</div>
+	</div>
+	<div class="row justify-content-center card-footer">
+		<div id="{{widget_id}}" class="btn-group btn-group-sm edit_widget_bar col-auto" role="group">
+			<button id="{{widget_id}}" data-edit-class="widget_data" class="btn btn-light" onclick="edit_widget(this, 'open')"><span class="oi oi-musical-note" title="musical-note" aria-hidden="true"></span></button>
+			<button id="{{widget_id}}" data-edit-class="widget_customise" class="btn btn-dark" onclick="edit_widget(this, 'open')"><span class="oi oi-pencil"></span></button>
+			<button id="{{widget_id}}" class="remove_widget btn btn-danger" onclick="remove_widget(this)"><span class="oi oi-trash"></span></button>
+		</div>
+	</div>
+
+	<div class="row justify-content-center">
+		<div class="col-auto">
+			<div id="{{widget_id}}" class="edit_widget_forms">
+				<form action="javascript:void(0);" id="{{widget_id}}" data-edit-class="widget_data" class="widget_data_form" onsubmit="edit_widget(this, 'close')">
+					{% block widget_data %}
+					{% endblock %}
+					<div class="input-group mb-3" >
+						<div class="input-group-prepend">
+							<span class="input-group-text">Channel</span>
+						</div>
+						<input class="widget_data form-control" type="number" min="0" max="15" required name="channel" placeholder="Channel">
+					</div>
+					<input type="submit" class="btn btn-light" value="Save">	
+				</form>	
+
+				<form action="javascript:void(0);" id="{{widget_id}}" data-edit-class="widget_customise"  onsubmit="edit_widget(this, 'close')"  class="widget_customise_form">
+					<div class="input-group mb-3">
+						<div class="input-group-prepend">
+							<span class="input-group-text">Label</span>
+						</div>
+						<input class="widget_customise form-control" id={{widget_id}} value="{{widget_id}}" type="text" name="widget_label" placeholder="Widget Label" onchange="change_widget_label(this)">
+					</div>
+					<div class="input-group mb-3">
+						<div class="input-group-prepend">
+							<span class="input-group-text">Re Order</span>
+						</div>
+						<div class="input-group-append">
+							<buttton class="btn btn-dark" id={{widget_id}} onclick="reorder_widget(this, -1)"><span class="oi oi-arrow-thick-left"></span></buttton>
+							<buttton class="btn btn-dark" id={{widget_id}} onclick="reorder_widget(this, 1)"><span class="oi oi-arrow-thick-right"></span></buttton>
+						</div>
+					</div>
+					{% block widget_customise %}
+					{% endblock %}
+					<input type="submit" class="btn btn-light" value="Close">
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<link rel='stylesheet' href="{{url_for('static', filename='css/bootstrap.css')}}">
+		<link rel="stylesheet" href="{{url_for('static', filename='css/open-iconic-bootstrap.css')}}">
+		<link rel='stylesheet' href="{{url_for('static', filename='css/app.css')}}">
+
+		<script src="{{url_for('static', filename='js/jquery.js')}}"></script>
+		<script src="{{url_for('static', filename='js/bootstrap.bundle.min.js')}}"></script>
+		
+		<script src="{{url_for('static', filename='js/selects.js')}}"></script>
+		<script src="{{url_for('static', filename='js/controller.js')}}"></script>
+		<script src="{{url_for('static', filename='js/widget.js')}}"></script>
+		<script src="{{url_for('static', filename='js/widgets_utils.js')}}"></script>
+		<script src="{{url_for('static', filename='js/slider_utils.js')}}"></script>
+		<script type="text/javascript">
+			function get_command_url(command){
+				if (command == ''){
+					return "{{url_for('midi_command')}}"
+				}
+				return "{{url_for('midi_command')}}/" + command
+			}
+
+			function get_widget_url(widget_type){
+				return "{{url_for('get_widget')}}/" + widget_type
+			}
+
+			function get_setup_url(setup_name){
+				return "{{url_for('setup')}}/" + setup_name
+			}
+			
+			$(document).ready(function(){
+				ports_url = "{{url_for('get_ports')}}"
+				widgets_url = "{{url_for('get_widgets')}}"
+				setups_url = "{{url_for('get_setups')}}"
+				init_controller()
+			})
+		</script>
+		<title>Midas - Local Web Midi</title>
+	</head>
+	<body class="bg-light text-center">
+		{% for category, message in get_flashed_messages(with_categories=true) %}
+				<div class="col-12">
+					<div class="alert alert-{{category}}" role="alert">
+						{{message}}
+						  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    						<span aria-hidden="true">&times;</span>
+  						</button>
+					</div>
+				</div>
+		{%endfor%}
+		<h1 class="display .text-center"><span class="oi oi-musical-note" title="musical-note" aria-hidden="true"> Midas <span class="oi oi-musical-note" title="musical-note" aria-hidden="true"></span></h1> 
+		<div class="container card bg-dark">
+			{% if session.get("MIDI_CONN") == None %}
+			<form action="{{url_for('open_midi')}}" method="POST">
+				<div class="row justify-content-md-center">
+					<div class="col-md-auto">
+						<div class="input-group mb-3 mt-3">
+							<select id="port_select" class="custom-select form-control" required name='port_select'>
+								<option value="" disabled selected hidden>Midi Port</option>
+								<option id="com_option" value="COM">COM PORT</option> 
+							</select>
+							<div class="input-group-append">
+								<input value="Open Midi" class="btn btn-outline-light" type='submit' />
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row justify-content-md-center">
+					<div class="com-md-auto">
+						<div class="input-group mb-3 com_port_ext">
+							<div class="input-group-prepend">
+								<span class="input-group-text" id="com_port_lable">COM</span>
+							</div>
+							<input type="number" id="com_port"  name="com_port" aria-describedby="midi_status_text" class="com_port_ext" placeholder="Port Number"/>
+							<input type="number" name="baudrate" class="com_port_ext" placeholder="Baudrate" />
+							<div class="input-group-append">
+								<span class="input-group-text">Baudrate</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+			{%endif%}
+		</div>
+		{% if session.get('MIDI_CONN') %}
+		<div class="container card bg-dark pt-3 pb-3">
+			{%block controller %}
+			{%endblock%}
+		</div>
+		{%endif%}
+	</body>
+</html>

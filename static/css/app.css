@@ -1,0 +1,65 @@
+.big-button {
+  left: 50%;
+  top: 50%;
+  position: absolute;
+  margin-left: -50px;
+  margin-top: -50px;
+  width: 100px;
+  height: 90px;
+  line-height: 200px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 50%;
+  background: #f74d4d;
+}
+.big-button:active {
+  -webkit-transform: translate(0px, 15px);
+  -moz-transform: translate(0px, 15px);
+  -ms-transform: translate(0px, 15px);
+  -o-transform: translate(0px, 15px);
+  -webkit-transition: 0.1s all ease-out;
+  -moz-transition: 0.1s all ease-out;
+  -ms-transition: 0.1s all ease-out;
+  -o-transition: 0.1s all ease-out;
+  transition: 0.1s all ease-out;
+}
+.button-red{
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f74d4d), color-stop(100%, #f86569));
+  background-image: -moz-gradient(linear, left top, left bottom, color-stop(0%, #f74d4d), color-stop(100%, #f86569));
+  box-shadow: 0 7px #e24f4f;
+}
+.button-red:active{
+ box-shadow: 0 0px #e24f4f; 
+}
+
+.button-blue{
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,  #3399ff), color-stop(100%,  #1a8cff));
+  background-image: -moz-gradient(linear, left top, left bottom, color-stop(0%,  #3399ff), color-stop(100%,   #1a8cff));
+  box-shadow: 0 7px #0073e6;
+}
+.button-blue:active{
+  box-shadow: 0 0px #0073e6;
+}
+
+.fader {
+  margin-top: 50px;
+  margin-bottom: 50px;
+   transform: rotate(270deg);
+  -moz-transform: rotate(270deg);
+}
+
+.custom-handle::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #4CAF50; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+.custom-handle::-moz-range-thumb {
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #4CAF50; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
